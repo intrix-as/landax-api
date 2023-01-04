@@ -1,0 +1,766 @@
+{
+	"info": {
+		"_postman_id": "af3b4d17-0fb5-4a06-a298-2fa98a936f1f",
+		"name": "Landax-v20",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12287874"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"client_id\": \"{{landax_client_id}}\", \n    \"client_secret\": \"{{landax_client_secret}}\",\n    \"username\": \"{{landax_username}}\",\n    \"password\": \"{{landax_password}}\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/authenticate/token?grant_type=password",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"authenticate",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Contacts",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contact",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Contacts(19599)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Contacts(19599)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contact with filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Contacts?$filter=Number eq '693830'",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Contacts"
+					],
+					"query": [
+						{
+							"key": "$filter",
+							"value": "Number eq '693830'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FirstName\": \"Test1\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Contacts",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Contacts(1542)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Contacts(1542)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Customers",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Customers(45)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Customers(45)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Customer",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FirstName\": \"TestkundePatch\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Customers(45)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Customers(45)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ProjectTagReference1s",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/ProjectTagReference1s",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"ProjectTagReference1s"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Documents",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Documents",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Document",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Documents(355)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Documents(355)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Equipment's Documents",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Equipment(1)/Documents",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Equipment(1)",
+						"Documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Document",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "document",
+							"value": "{}",
+							"type": "text"
+						},
+						{
+							"key": "documentLink",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "fileData",
+							"value": "TestFileData",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Documents/CreateDocument",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Documents",
+						"CreateDocument"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Documents.PushContent",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "TestDataPushContent"
+				},
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v21/Documents/PushContent?documentid=393&encode=raw",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v21",
+						"Documents",
+						"PushContent"
+					],
+					"query": [
+						{
+							"key": "documentid",
+							"value": "393"
+						},
+						{
+							"key": "encode",
+							"value": "raw"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Projects",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Projects",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Project",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Projects(2266)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Projects(2266)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Project",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"150729\",\n    \"Number\": \"XNB20334\",\n    \"TypeId\": 16,\n    \"CategoryId\": 3,\n    \"DepartmentId\": 3,\n    \"ResponsibleCoworkerId\": 16,\n    \"CustomerId\": 3384\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Projects",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Tasks",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Task(3182)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Task(3182)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Task",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RegisteredByCoworkerId\": 16\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Task(2975)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Task(2975)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Task(3181)",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Task(3181)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Modules",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OData-Version",
+						"value": "4.0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{landax_domain}}.landax.no/api/v20/Modules",
+					"protocol": "https",
+					"host": [
+						"{{landax_domain}}",
+						"landax",
+						"no"
+					],
+					"path": [
+						"api",
+						"v20",
+						"Modules"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{landax_bearer_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
